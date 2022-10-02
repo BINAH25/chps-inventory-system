@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --color-bg: transparent;
+  --color-main: #301e4e;
+  --color-btn: #ff6e6c;
+  --fz-heading: 40px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: transparent;
+}
+
+button {
+  border-radius: 4px;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/static/images/istockphoto-1314913951-170667a.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* background: linear-gradient(#ff6e6c 21%, #52436b 100%); */
+}
+
+.login {
+  background-color: transparent;
+  padding: 2rem;
+  width: 90%;
+  max-width: 25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+.login form {
+  width: 100%;
+}
+
+h1 + small {
+  width: 100%;
+}
+
+a img {
+  width: clamp(8rem, 20vw, 10rem);
+}
+
+.login h1 {
+  margin-top: 1rem;
+}
+
+.reset h1 {
+  margin-block: 1rem;
+}
+
+.login .form-control {
+  margin-block: 1rem;
+  position: relative;
+}
+::placeholder {
+  color: black;
+  font-size: 1rem;
+}
+.login .form-control label {
+  font-size: 0.9rem;
+}
+
+.login .form-control input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  border: 1px solid var(--color-main);
+  border-radius: 4px;
+  background-color: transparent;
+  font-family: inherit;
+  outline: none;
+}
+
+.login .form-control input:focus {
+  border: 1px solid var(--color-main);
+}
+
+.form-control img {
+  position: absolute;
+  right: 1rem;
+  top: 2.3rem;
+  opacity: 0.7;
+}
+
+.form-control img.hide {
+  content: url("/static/assets/icons/remove_red_eye_hide.png");
+}
+
+.login .form-control small {
+  float: right;
+  margin-top: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-btn);
+}
+
+.login .form-action {
+  margin-block: 3rem 1rem;
+}
+
+.reset .form-action {
+  margin-block: 1rem;
+}
+
+.login .form-action button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  color: black;
+  border: 1px solid var(--color-main);
+  background-color: transparent;
+}
+.login .form-action button:hover {
+  background-color: var(--color-main);
+  color: #fff;
+}

@@ -1,0 +1,142 @@
+{% extends 'base.html'%}
+{% block title %}HOME{% endblock %}
+{% block content%}
+<section class="home-grid">
+
+    <h1 class="heading">Patient Details</h1>
+    <form action="/send" method="post" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01" class="form-label" style="font-size: 2rem;">Registration Number</label>
+            <input type="text" name="registration" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom01" placeholder="10899830" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">First name</label>
+            <input type="text" name="firstname" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="Patrick" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Last name</label>
+            <input type="text" name="lastname" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="Assuah" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01" class="form-label" style="font-size: 2rem;">Address/Telephone</label>
+            <input type="text" name="telephone" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom01" placeholder="0246031105" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Date of Birth</label>
+            <input type="text" name="date_of_birth" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="dd/mm/year" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">NHIS Number</label>
+            <input type="text" name="nhis_number" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="21058402" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-12 mb-5">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Complaints of Clients</label>
+            <textarea class="form-control" name="complaint" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="Enter Complaint" required></textarea>
+            <div class="invalid-feedback" style="font-size: 1.3rem;">
+                Please enter a message in the textarea.
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom01" class="form-label" style="font-size: 2rem;">Date</label>
+            <input type="text" name="date1" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom01" placeholder="dd/mm/year" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Time</label>
+            <input type="text" name="time" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="10:30am" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Temperature</label>
+            <input type="text" name="temperature" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="32" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Weight </label>
+            <input type="text" name="weight" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="55" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">E.B.P and Pulse</label>
+            <input type="text" name="pulse" class="form-control" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="20" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3 mt-5">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Observation (O/E)</label>
+            <textarea class="form-control" name="observation" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="Enter Observation" required></textarea>
+            <div class="invalid-feedback" style="font-size: 1.3rem;">
+                Please enter a message in the textarea.
+            </div>
+        </div>
+        <div class="col-md-6 mb-3 mt-5">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Diagnosis</label>
+            <textarea class="form-control" name="diagnosis" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="Enter Diagnosis" required></textarea>
+            <div class="invalid-feedback" style="font-size: 1.3rem;">
+                Please enter a message in the textarea.
+            </div>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="validationCustom02" class="form-label" style="font-size: 2rem;">Treatment Given (Rx)</label>
+            <textarea class="form-control" name="treatment" style="padding: 20px; font-size: 2rem;"
+                id="validationCustom02" placeholder="Enter Treatment Given" required></textarea>
+            <div class="invalid-feedback" style="font-size: 1.3rem;">
+                Please enter a message in the textarea.
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary p-3 mt-5" style="font-size: 2rem;" type="submit">Submit form</button>
+        </div>
+    </form>
+    </div>
+
+</section>
+
+{% endblock%}

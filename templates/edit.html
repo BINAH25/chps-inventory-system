@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block title %}EDIT PAGE{% endblock %}
+{% block content%}
+{% load crispy_forms_tags %}
+
+<div class="row my-4">
+    <div class="col-md-6 offset-md-3 p-3 bg-white">
+        <h3 class=" fw-bold" style="color:#259cba ;font-size: 2.3rem;">Edit Patient Information</h3>
+        <hr>
+        <form method="POST" style="font-size: 2rem;">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <a class="btn text-white" style="background:  #259cba;font-size: 2rem;"
+                href="{% url 'chps:home' %}">Cancel</a>
+            <input class="btn text-white" type="submit" value="Confirm" style="background:  #259cba;font-size: 2rem;">
+        </form>
+    </div>
+</div>
+<!--End Table-->
+{% endblock%}

@@ -1,0 +1,106 @@
+{% extends 'base.html'%}
+{% block title %}HOME{% endblock %}
+{% block content%}
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-white" style="font-size: 2rem; background: #259cba;">
+                    Profile Page
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <span class="h4" style="font-size: 2rem;"> Patient Information</span>
+                            <a class="btn btn-danger btn-sm float-right"
+                                href="{% url 'chps:delete_patient' patient.id %}" style="font-size: 2rem;">Delete</a>
+                            <a class="btn btn-info btn-sm float-right mr-5" href="{% url 'chps:edit' patient.id %}"
+                                style="font-size: 2rem;">Edit</a>
+                            <hr>
+
+                            <table class="table bg-white table-borderless">
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Registration Number</th>
+                                        <td style="font-size: 2rem;">{{patient.registration}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">FirstName</th>
+                                        <td style="font-size: 2rem;">{{patient.firstname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">LastName</th>
+                                        <td style="font-size: 2rem;">{{patient.lastname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Address/Telephone</th>
+                                        <td style="font-size: 2rem;">{{patient.telephone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Date of Birth</th>
+                                        <td style="font-size: 2rem;">{{patient.date_of_birth}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">NHIS NUMBER</th>
+                                        <td style="font-size: 2rem;">{{patient.nhis_number}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Client's Complaint</th>
+                                        <td style="font-size: 2rem;"><textarea name="" id="" cols="80" rows="5"
+                                                style="outline: none; border: none; resize: none;">{{patient.complaint}}</textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Date</th>
+                                        <td style="font-size: 2rem;">{{patient.date1}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Time</th>
+                                        <td style="font-size: 2rem;">{{patient.time}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Temperature</th>
+                                        <td style="font-size: 2rem;">{{patient.temperature}}°C</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Weight</th>
+                                        <td style="font-size: 2rem;">{{patient.weight}}Kg</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">E.B.P and Pulse</th>
+                                        <td style="font-size: 2rem;">{{patient.pulse}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Observation (O/E)</th>
+                                        <td style="font-size: 2rem;"><textarea name="" id="" cols="80" rows="4"
+                                                style="outline: none; border: none; resize: none;">{{patient.observation}}</textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Diagnosis</th>
+                                        <td style="font-size: 2rem;"><textarea name="" id="" cols="80" rows="4"
+                                                style="outline: none; border: none; resize: none;">{{patient.diagnosis}}</textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="font-size: 2rem;">Treatment Given (Rx)</th>
+                                        <td style="font-size: 2rem;"><textarea name="" id="" cols="80" rows="4"
+                                                style="outline: none; border: none; resize: none;">{{patient.treatment}}</textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock%}

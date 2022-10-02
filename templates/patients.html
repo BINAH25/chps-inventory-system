@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block title %}HOME{% endblock %}
+{% block content%}
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-12">
+            <table class="table bg-white">
+                <thead class="" style=" background: #259cba;">
+                    <tr class="text-white">
+                        <th scope="col" style="font-size: 2rem;">#</th>
+                        <th scope="col" style="font-size: 2rem;">Registration Number</th>
+                        <th scope="col" style="font-size: 2rem;">FirstName</th>
+                        <th scope="col" style="font-size: 2rem;">LastName</th>
+                        <th scope="col" style="font-size: 2rem;">Telephone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in patients %}
+                    <tr>
+                        <th scope="row" style="font-size: 2rem;"><a class="btn-sm text-white"
+                                href="{% url 'chps:patient_detail' p.id %}"
+                                style="font-size: 2rem; background: #259cba;">view</a>
+                        </th>
+                        <td style="font-size: 2rem;">{{p.registration}}</td>
+                        <td style="font-size: 2rem;">{{p.firstname}}</td>
+                        <td style="font-size: 2rem;">{{p.lastname}}</td>
+                        <td style="font-size: 2rem;">{{p.telephone}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock%}

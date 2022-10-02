@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <!-- alertify js file link  -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <section class="flex">
+
+            <a href="{% url 'chps:home'%}" class="logo">Adelakoekope CHPS.</a>
+
+            <form action="/search" method="post" class="search-form">
+                {% csrf_token %}
+
+                <input type="text" name="keyword" required placeholder="search for patient..." maxlength="100">
+                <button type="submit" class="fas fa-search"></button>
+            </form>
+
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+                <div id="search-btn" class="fas fa-search"></div>
+                <a href="{% url 'chps:log_out'%}">
+                    <div id="user-btn" class="fas fa-sign-out"></div>
+                </a>
+                <div id="toggle-btn" class="fas fa-sun"></div>
+            </div>
+
+
+
+        </section>
+
+    </header>
+
+    <div class="side-bar">
+
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="{% static 'images/patrick.jpeg'%}" class="image" alt="">
+            <h3 class="name">Patrick A. Akuah</h3>
+            <p class="role">Admin</p>
+        </div>
+
+        <nav class="navbar">
+            <a href="{% url 'chps:home'%}"><i class=" fas fa-home"></i><span>home</span></a>
+            <a href="{% url 'chps:patients'%}"><i class="fas fa-users"></i><span>Patients</span></a>
+        </nav>
+
+    </div>
+    {% block content%}
+    {% endblock%}
+
+
+    <footer class="footer">
+        &copy; copyright @ 2022 <span>Adelakoekope CHPS</span> | all rights reserved!
+
+    </footer>
+    <!-- alertify js file link  -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script> alertify.set('notifier', 'position', 'top-right');
+        {% for msg in messages %}
+        alertify.success('{{msg}}');
+        {% endfor %}
+    </script>
+    <!-- custom js file link  -->
+    <script src="{% static 'js/script.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+
+</body>
+
+</html>
