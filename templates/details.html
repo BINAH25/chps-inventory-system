@@ -89,6 +89,10 @@
                                                 style="outline: none; border: none; resize: none;">{{patient.treatment}}</textarea>
                                         </td>
                                     </tr>
+                                    <a class="btn btn-primary btn-sm float-right"
+                                        href="{% url 'chps:generate_pdf' patient.id %}"
+                                        style="font-size: 2rem;">Generate pdf</a>
+
                                 </tbody>
 
                             </table>
