@@ -5,8 +5,38 @@ from django.contrib import messages
 from django.utils.html import strip_tags
 from .models import *
 from .forms import *
+# generate pdf 
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
 
 # Create your views here.
+@login_required(login_url="chps:admin_login")   
+def generate_pdf(request,pk):
+    patient = Registration.objects.get(id=pk)
+    template_path = 'pdf.html'
+    context = {
+        'patient': patient
+    }
+    # create a django response object and specify content_types as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+  
+
+
 @login_required(login_url="chps:admin_login")   
 def home(request):
     return render(request, 'home.html')
@@ -81,7 +111,6 @@ def search(request):
     if request.method == 'POST':
         kw = request.POST['keyword']
         result = Registration.objects.filter(registration=kw)
-        print(result)
         context = {
             'result':result
         }
