@@ -13,4 +13,5 @@ urlpatterns = [
     path("patients", views.patients, name="patients"),
     path("admin_login", views.admin_login, name="admin_login"),
     path("log_out", views.log_out, name="log_out"),
+    path("generate_pdf/<int:pk>/", views.generate_pdf, name="generate_pdf"),
 ]
