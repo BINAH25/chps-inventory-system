@@ -91,6 +91,10 @@
                                                 style="outline: none; border: none; resize: none;">{{p.treatment}}</textarea>
                                         </td>
                                     </tr>
+                                    <a class="btn btn-primary btn-sm float-right mr-5"
+                                        href="{% url 'chps:generate_pdf' p.id %}" style="font-size: 2rem;">Generate
+                                        pdf</a>
+
                                 </tbody>
                                 {% endfor %}
 
